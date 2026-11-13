@@ -26,7 +26,7 @@ def cmd_probe(args: argparse.Namespace) -> int:
 def cmd_decode(args: argparse.Namespace) -> int:
     try:
         return decode.decode(args.input, args.policy, args.telemetry, args.report)
-    except decode.NotImplementedDecode as e:
+    except decode.DecodeError as e:
         sys.stderr.write(str(e) + "\n")
         return 2
 
